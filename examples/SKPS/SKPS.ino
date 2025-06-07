@@ -88,33 +88,6 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  // if (millis() > t0) {
-  //   t0 = millis() + 100;
-  //   //digital_button = (skps(p_l2) << 11) | (skps(p_l1) << 10) | (skps(p_r2) << 9) | (skps(p_r1) << 8) | (skps(p_square) << 7) | (skps(p_cross) << 6) | (skps(p_circle) << 5) | (skps(p_triangle) << 4) | (skps(p_left) << 3) | (skps(p_down) << 2) | (skps(p_right) << 1) | skps(p_up);
-  //   rawX = skps(p_joy_rx);
-  //   rawY = skps(p_joy_ry);
-
-  //   // Convert to centered coordinates
-  //   int dx = rawX - 128;
-  //   int dy = rawY - 128;
-
-  //   // Compute magnitude from center
-  //   float magnitude = sqrt(dx * dx + dy * dy);
-
-  //   // Normalize based on max distance (127)
-  //   float normalizedMagnitude = (magnitude / 127.0) * 100.0;
-  //   if (normalizedMagnitude > 100.0) normalizedMagnitude = 100.0;
-
-  //   // Compute angle
-  //   float angle = atan2(-dy, dx) * 180.0 / PI;  // Invert Y so upward is +90
-  //   if (angle < 0) angle += 360;
-
-  //   // Output result
-  //   // Serial.print("Magnitude: ");
-  //   // Serial.print(normalizedMagnitude, 1);
-  //   // Serial.print(" | Angle: ");
-  //   // Serial.println(angle, 1);
-  // }
   if (skps(p_up) == 0) {
     robot.drive(VX_MAX, 0.0, FORWARD_OFFSET);   // FORWARD
   } else if (skps(p_right) == 0) {
@@ -130,43 +103,7 @@ void loop() {
   } else {
     robot.drive(0.0, 0.0, 0.0);                 //STOP
   }
-  // if (button_old != digital_button) {
-  //   switch (digital_button) {
-  //     case 239:
-  //       Serial.println("Triangle");
-  //       break;
-  //     case 223:
-  //       Serial.println("circle");
-  //       break;
-  //     case 191:
-  //       Serial.println("cross");
-  //       break;
-  //     case 127:
-  //       Serial.println("square");
-
-  //       break;
-  //     case 254:
-  //       Serial.println("UP");
-  //       robot.drive(0.02, 0.0, 0.0);  //forward
-  //       break;
-  //     case 253:
-  //       Serial.println("RIGHT");
-  //       robot.drive(0.0, -0.02, 0.0);  //forward
-  //       break;
-  //     case 251:
-  //       Serial.println("DOWN");
-  //       robot.drive(-0.02, 0.0, 0.0);  //forward
-  //       break;
-  //     case 247:
-  //       Serial.println("LEFT");
-  //       robot.drive(0.0, 0.02, 0.0);  //forward
-  //       break;
-  //     default:
-  //       robot.drive(0.0, 0.0, 0.0);  //forward
-  //       break;
-  //   }
-  //   button_old = digital_button;
-  // }
+  
   if (millis() > t1_servo) {
     static int16_t pos1;
     static int16_t pos2;
